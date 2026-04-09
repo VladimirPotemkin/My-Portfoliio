@@ -12,10 +12,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  message: {
-    type: String,
-    default: null,
-  },
-})
+import { useToast } from '../composables/useToast'
+
+const { message } = useToast()
 </script>

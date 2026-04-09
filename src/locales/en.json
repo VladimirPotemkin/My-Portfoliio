@@ -19,22 +19,47 @@
   },
   "home": {
     "eyebrow": "Vue / TypeScript / Frontend",
+    "heroLabel": "Available for work",
+    "experienceSection": "Experience",
+    "timelineSection": "Key milestones and shipped work",
+    "cvSection": "Resume",
     "emailAction": "Send an email",
     "githubAction": "GitHub profile",
+    "cvAction": "View CV",
     "experienceTitle": "Experience",
     "stackTitle": "Stack",
-    "locationTitle": "Location"
+    "locationTitle": "Location",
+    "timelineProjectLabel": "Projects",
+    "cvTitle": "Full resume",
+    "cvSubtitle": "Core experience, education, courses, and work format in one place.",
+    "cvApproach": "Development approach",
+    "cvEducation": "Education",
+    "cvCourses": "Courses",
+    "cvLanguages": "Languages",
+    "cvClose": "Close",
+    "projectGalleryTitle": "Project gallery",
+    "projectGalleryClose": "Close gallery",
+    "projectGalleryPrev": "Previous image",
+    "projectGalleryNext": "Next image",
+    "projectGalleryCounter": "Slide {current} of {total}",
+    "projectGalleryUnavailable": "Currently unavailable"
   },
   "portfolio": {
     "eyebrow": "Portfolio",
     "title": "Projects and GitHub activity.",
+    "featuredTitle": "Featured Production Projects",
+    "githubTitle": "GitHub Repositories",
     "description": "This section will show project highlights powered by the GitHub API, dynamic stack filtering, and scroll-based reveal animations.",
     "dataTitle": "Data",
     "dataBody": "Project data is already centralized in a Pinia store. Current default username: {username}.",
-    "filtersTitle": "Filters",
-    "filtersBody": "Available languages will be built automatically from fetched repositories. The current system filter value is {filter}.",
-    "statesTitle": "States",
-    "statesBody": "The store already includes idle / loading / success / error states and a retry action for repeated requests."
+    "allLanguages": "All",
+    "loading": "Loading repositories...",
+    "retry": "Try again",
+    "empty": "No repositories match the selected filter.",
+    "errorFallback": "Failed to load repositories.",
+    "noDescription": "No description provided.",
+    "languageUnknown": "Unknown",
+    "openOnGithub": "Open on GitHub"
   },
   "contacts": {
     "eyebrow": "Contacts",
@@ -42,7 +67,20 @@
     "description": "This section will host contact links, email copy-to-clipboard feedback, and a contact form.",
     "emailTitle": "Email",
     "telegramTitle": "Telegram",
-    "githubTitle": "GitHub"
+    "githubTitle": "GitHub",
+    "openLink": "Open link",
+    "copyEmail": "Copy email",
+    "formTitle": "Send message",
+    "formNameLabel": "Name",
+    "formEmailLabel": "Email",
+    "formMessageLabel": "Message",
+    "formSubmit": "Send",
+    "formErrors": {
+      "nameRequired": "Please enter your name.",
+      "emailRequired": "Please enter your email.",
+      "emailInvalid": "Enter a valid email address.",
+      "messageRequired": "Please enter your message."
+    }
   },
   "footer": {
     "role": "Frontend Developer",
@@ -54,6 +92,8 @@
     "title": "My Portfolio"
   },
   "toast": {
-    "emailCopied": "Email copied"
+    "emailCopied": "Email copied",
+    "copyFailed": "Failed to copy email.",
+    "formSubmitted": "Message sent. I will contact you soon."
   }
 }

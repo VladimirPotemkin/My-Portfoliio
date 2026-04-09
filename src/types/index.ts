@@ -24,12 +24,19 @@ export interface TimelineItem {
   title: string
   company: string
   description: string
-  projects?: string[]
+  projects?: TimelineProject[]
+}
+
+export interface TimelineProject {
+  id: string
+  name: string
+  description?: string
+  images?: string[]
 }
 
 export interface SkillItem {
   name: string
-  category: 'frontend' | 'state' | 'tooling' | 'design' | 'language'
+  category: 'frontend' | 'state' | 'tooling' | 'design' | 'language' | 'test'
 }
 
 export interface ContactLink {

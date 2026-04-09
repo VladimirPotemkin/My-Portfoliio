@@ -19,22 +19,47 @@
   },
   "home": {
     "eyebrow": "Vue / TypeScript / Frontend",
+    "heroLabel": "Доступен для работы",
+    "experienceSection": "Опыт",
+    "timelineSection": "Ключевые этапы и проекты",
+    "cvSection": "Резюме",
     "emailAction": "Написать на почту",
     "githubAction": "GitHub профиль",
+    "cvAction": "Посмотреть CV",
     "experienceTitle": "Опыт",
     "stackTitle": "Стек",
-    "locationTitle": "Локация"
+    "locationTitle": "Локация",
+    "timelineProjectLabel": "Проекты",
+    "cvTitle": "Полное резюме",
+    "cvSubtitle": "Ключевой опыт, образование, курсы и рабочий формат в одном окне.",
+    "cvApproach": "Подход к разработке",
+    "cvEducation": "Образование",
+    "cvCourses": "Курсы",
+    "cvLanguages": "Языки",
+    "cvClose": "Закрыть",
+    "projectGalleryTitle": "Галерея проекта",
+    "projectGalleryClose": "Закрыть галерею",
+    "projectGalleryPrev": "Предыдущее изображение",
+    "projectGalleryNext": "Следующее изображение",
+    "projectGalleryCounter": "Слайд {current} из {total}",
+    "projectGalleryUnavailable": "В настоящее время недоступно"
   },
   "portfolio": {
     "eyebrow": "Portfolio",
     "title": "Проекты и GitHub-активность.",
+    "featuredTitle": "Ключевые продакшен-проекты",
+    "githubTitle": "GitHub-репозитории",
     "description": "Здесь будет витрина проектов с загрузкой репозиториев из GitHub API, фильтрацией по стеку и анимацией появления карточек при прокрутке.",
     "dataTitle": "Данные",
     "dataBody": "Источник проектов уже централизован в Pinia store. Базовый username: {username}.",
-    "filtersTitle": "Фильтры",
-    "filtersBody": "Доступные языки будут собираться из репозиториев автоматически. Сейчас подготовлен фильтр с системным значением {filter}.",
-    "statesTitle": "Состояния",
-    "statesBody": "Store уже содержит состояния idle / loading / success / error и retry-action для повторного запроса."
+    "allLanguages": "Все",
+    "loading": "Загрузка репозиториев...",
+    "retry": "Повторить",
+    "empty": "Нет репозиториев для выбранного фильтра.",
+    "errorFallback": "Не удалось загрузить репозитории.",
+    "noDescription": "Описание отсутствует.",
+    "languageUnknown": "Не указан",
+    "openOnGithub": "Открыть на GitHub"
   },
   "contacts": {
     "eyebrow": "Contacts",
@@ -42,7 +67,20 @@
     "description": "На этом экране будут контактные ссылки, копирование email в буфер и форма обратной связи.",
     "emailTitle": "Email",
     "telegramTitle": "Telegram",
-    "githubTitle": "GitHub"
+    "githubTitle": "GitHub",
+    "openLink": "Открыть ссылку",
+    "copyEmail": "Скопировать email",
+    "formTitle": "Отправить сообщение",
+    "formNameLabel": "Имя",
+    "formEmailLabel": "Email",
+    "formMessageLabel": "Сообщение",
+    "formSubmit": "Отправить",
+    "formErrors": {
+      "nameRequired": "Введите имя.",
+      "emailRequired": "Введите email.",
+      "emailInvalid": "Введите корректный email.",
+      "messageRequired": "Введите сообщение."
+    }
   },
   "footer": {
     "role": "Frontend-разработчик",
@@ -54,6 +92,8 @@
     "title": "My Portfolio"
   },
   "toast": {
-    "emailCopied": "Email скопирован"
+    "emailCopied": "Email скопирован",
+    "copyFailed": "Не удалось скопировать email.",
+    "formSubmitted": "Сообщение отправлено. Я свяжусь с вами."
   }
 }

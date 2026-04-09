@@ -90,24 +90,21 @@ export const useGithubStore = defineStore('github', () => {
 
       if (!response.ok) {
         throw new Error(
-          response.status === 403 ? 'GitHub API временно недоступен из-за ограничения запросов.' : 'Не удалось загрузить репозитории GitHub.',
+          response.status === 403
+            ? 'GitHub API is temporarily unavailable due to rate limiting.'
+            : 'Failed to load GitHub repositories.',
         )
       }
 
       const payload: unknown = await response.json()
 
       if (!Array.isArray(payload)) {
-        throw new Error('GitHub API вернул неожиданный формат данных.')
+        throw new Error('GitHub API returned an unexpected payload format.')
       }
 
       const normalizedRepos = payload
         .filter(isGitHubRepo)
-        .filter(({ fork, description }) => !fork && Boolean(description))
         .sort((left, right) => {
-          if (right.stargazers_count !== left.stargazers_count) {
-            return right.stargazers_count - left.stargazers_count
-          }
-
           return new Date(right.updated_at).getTime() - new Date(left.updated_at).getTime()
         })
 
@@ -121,7 +118,10 @@ export const useGithubStore = defineStore('github', () => {
     } catch (caughtError) {
       repos.value = []
       status.value = 'error'
-      error.value = caughtError instanceof Error ? caughtError.message : 'Неизвестная ошибка при загрузке GitHub-данных.'
+      error.value =
+        caughtError instanceof Error
+          ? caughtError.message
+          : 'Unknown error while loading GitHub data.'
     }
   }
 

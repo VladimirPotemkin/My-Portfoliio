@@ -48,3 +48,13 @@
   opacity: 0;
   transform: translateY(10px);
 }
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 220ms ease;
+}
+
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+}
