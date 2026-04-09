@@ -1,0 +1,59 @@
+﻿{
+  "nav": {
+    "about": "About",
+    "portfolio": "Projects",
+    "contacts": "Contacts",
+    "aria": "Primary navigation"
+  },
+  "language": {
+    "label": "Interface language",
+    "ru": "RU",
+    "en": "EN"
+  },
+  "profile": {
+    "role": "Frontend Developer",
+    "tagline": "Building scalable interfaces and internal products with Vue.",
+    "summary": "I am a frontend developer with commercial experience in Vue 3 and the Vue ecosystem. I design interfaces, work with client-side logic, API integrations, responsive layout, and the evolution of UI platforms. My work is grounded in SOLID, DRY, KISS, BEM, and FSD principles.",
+    "experienceLabel": "2+ years of commercial web development",
+    "locationLine": "Moscow · Office / Remote / Hybrid"
+  },
+  "home": {
+    "eyebrow": "Vue / TypeScript / Frontend",
+    "emailAction": "Send an email",
+    "githubAction": "GitHub profile",
+    "experienceTitle": "Experience",
+    "stackTitle": "Stack",
+    "locationTitle": "Location"
+  },
+  "portfolio": {
+    "eyebrow": "Portfolio",
+    "title": "Projects and GitHub activity.",
+    "description": "This section will show project highlights powered by the GitHub API, dynamic stack filtering, and scroll-based reveal animations.",
+    "dataTitle": "Data",
+    "dataBody": "Project data is already centralized in a Pinia store. Current default username: {username}.",
+    "filtersTitle": "Filters",
+    "filtersBody": "Available languages will be built automatically from fetched repositories. The current system filter value is {filter}.",
+    "statesTitle": "States",
+    "statesBody": "The store already includes idle / loading / success / error states and a retry action for repeated requests."
+  },
+  "contacts": {
+    "eyebrow": "Contacts",
+    "title": "Contacts and a quick CTA.",
+    "description": "This section will host contact links, email copy-to-clipboard feedback, and a contact form.",
+    "emailTitle": "Email",
+    "telegramTitle": "Telegram",
+    "githubTitle": "GitHub"
+  },
+  "footer": {
+    "role": "Frontend Developer",
+    "email": "Email",
+    "github": "GitHub",
+    "telegram": "Telegram"
+  },
+  "document": {
+    "title": "My Portfolio"
+  },
+  "toast": {
+    "emailCopied": "Email copied"
+  }
+}

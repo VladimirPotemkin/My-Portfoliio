@@ -2,6 +2,8 @@ export type Locale = 'ru' | 'en'
 
 export type ThemeMode = 'light' | 'dark'
 
+export type GitHubRequestStatus = 'idle' | 'loading' | 'success' | 'error'
+
 export interface GitHubRepo {
   id: number
   name: string

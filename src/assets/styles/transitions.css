@@ -1,0 +1,50 @@
+@layer base {
+  html,
+  body,
+  #app {
+    transition:
+      background-color 220ms ease,
+      color 220ms ease;
+  }
+}
+
+@layer components {
+  .surface-panel,
+  .skill-chip,
+  .action-link,
+  .nav-link,
+  .app-footer__link {
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
+  }
+}
+
+.route-fade-enter-active,
+.route-fade-leave-active {
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.route-fade-enter-from,
+.route-fade-leave-to {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.toast-enter-active,
+.toast-leave-active {
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}

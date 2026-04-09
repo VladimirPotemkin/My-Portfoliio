@@ -1,0 +1,59 @@
+﻿{
+  "nav": {
+    "about": "Обо мне",
+    "portfolio": "Проекты",
+    "contacts": "Контакты",
+    "aria": "Основная навигация"
+  },
+  "language": {
+    "label": "Язык интерфейса",
+    "ru": "RU",
+    "en": "EN"
+  },
+  "profile": {
+    "role": "Frontend-разработчик",
+    "tagline": "Разрабатываю масштабируемые интерфейсы и внутренние продукты на Vue.",
+    "summary": "Я фронтенд-разработчик с коммерческим опытом на Vue 3 и экосистеме Vue. Проектирую интерфейсы, работаю с клиентской логикой, API-интеграциями, адаптивной вёрсткой и развитием UI-платформ. В работе опираюсь на SOLID, DRY, KISS, БЭМ и FSD-подход.",
+    "experienceLabel": "2+ года коммерческой веб-разработки",
+    "locationLine": "Москва · Офис / Удалённо / Гибрид"
+  },
+  "home": {
+    "eyebrow": "Vue / TypeScript / Frontend",
+    "emailAction": "Написать на почту",
+    "githubAction": "GitHub профиль",
+    "experienceTitle": "Опыт",
+    "stackTitle": "Стек",
+    "locationTitle": "Локация"
+  },
+  "portfolio": {
+    "eyebrow": "Portfolio",
+    "title": "Проекты и GitHub-активность.",
+    "description": "Здесь будет витрина проектов с загрузкой репозиториев из GitHub API, фильтрацией по стеку и анимацией появления карточек при прокрутке.",
+    "dataTitle": "Данные",
+    "dataBody": "Источник проектов уже централизован в Pinia store. Базовый username: {username}.",
+    "filtersTitle": "Фильтры",
+    "filtersBody": "Доступные языки будут собираться из репозиториев автоматически. Сейчас подготовлен фильтр с системным значением {filter}.",
+    "statesTitle": "Состояния",
+    "statesBody": "Store уже содержит состояния idle / loading / success / error и retry-action для повторного запроса."
+  },
+  "contacts": {
+    "eyebrow": "Contacts",
+    "title": "Контакты и быстрый CTA.",
+    "description": "На этом экране будут контактные ссылки, копирование email в буфер и форма обратной связи.",
+    "emailTitle": "Email",
+    "telegramTitle": "Telegram",
+    "githubTitle": "GitHub"
+  },
+  "footer": {
+    "role": "Frontend-разработчик",
+    "email": "Email",
+    "github": "GitHub",
+    "telegram": "Telegram"
+  },
+  "document": {
+    "title": "My Portfolio"
+  },
+  "toast": {
+    "emailCopied": "Email скопирован"
+  }
+}
