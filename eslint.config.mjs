@@ -34,7 +34,8 @@ export default tseslint.config(
           caughtErrorsIgnorePattern: '^_',
         },
       ],
+      'vue/first-attribute-linebreak': 'off',
       'vue/multi-word-component-names': 'off',
     },
-  }
+  },
 )

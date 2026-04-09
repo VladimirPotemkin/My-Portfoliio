@@ -3,11 +3,11 @@ import type { DeveloperProfile } from '../types'
 export const profileData: DeveloperProfile = {
   fullName: 'Владимир Потёмкин',
   firstName: 'Владимир',
-  role: 'Frontend Developer',
-  tagline: 'Vue-focused frontend engineer building scalable interfaces and internal products.',
+  role: 'Frontend-разработчик',
+  tagline: 'Разрабатываю масштабируемые интерфейсы и внутренние продукты на Vue.',
   summary:
-    'Фронтенд-разработчик с коммерческим опытом на Vue 3 и экосистеме Vue. Проектирует интерфейсы, работает с клиентской логикой, API-интеграциями, адаптивной вёрсткой и развитием UI-платформ. В работе опирается на SOLID, DRY, KISS, БЭМ и FSD-подход.',
-  experienceLabel: '2+ years of commercial web development',
+    'Я Фронтенд-разработчик с коммерческим опытом на Vue 3 и экосистеме Vue. Проектирую интерфейсы, работаю с клиентской логикой, API-интеграциями, адаптивной вёрсткой и развитием UI-платформ. В работе опираюсь на SOLID, DRY, KISS, БЭМ и FSD-подход.',
+  experienceLabel: '2+ года коммерческой веб-разработки',
   availability: {
     location: 'Москва',
     citizenship: 'Россия',
@@ -19,7 +19,7 @@ export const profileData: DeveloperProfile = {
   contacts: [
     {
       type: 'email',
-      label: 'Email',
+      label: 'Почта',
       value: 'v.potemkin93@yandex.ru',
       href: 'mailto:v.potemkin93@yandex.ru',
     },
@@ -37,7 +37,7 @@ export const profileData: DeveloperProfile = {
     },
     {
       type: 'phone',
-      label: 'Phone',
+      label: 'Телефон',
       value: '+7 (977) 458-48-78',
       href: 'tel:+79774584878',
     },
@@ -58,23 +58,23 @@ export const profileData: DeveloperProfile = {
   ],
   timeline: [
     {
-      year: 'Apr 2025 - Present',
-      title: 'Frontend Developer',
+      year: 'Апрель 2025 - настоящее время',
+      title: 'Frontend-разработчик',
       company: 'ЭКОН Технологии',
       description:
         'Разрабатываю крупные клиентские веб-приложения на Vue 3, Pinia, Vue Router и Vite, проектирую переиспользуемую UI-платформу и улучшаю производительность интерфейсов.',
       projects: ['IPAM', 'ERT для Вымпелком'],
     },
     {
-      year: 'May 2024 - Apr 2025',
-      title: 'Frontend Developer',
+      year: 'Май 2024 - апрель 2025',
+      title: 'Frontend-разработчик',
       company: 'Компания не указана в PDF',
       description:
         'Создавал сайты и веб-приложения на Vue 3, Vuex, Vue Router и Vite, занимался ребрендингом, адаптивной вёрсткой, UX-логикой и интеграцией с API-сервисами.',
     },
     {
-      year: 'May 2023 - Oct 2023',
-      title: 'Frontend Developer',
+      year: 'Май 2023 - октябрь 2023',
+      title: 'Frontend-разработчик',
       company: 'Easel Pix',
       description:
         'Разрабатывал сайты и веб-приложения на JavaScript и Vue 3, интегрировал компоненты и API, оптимизировал клиентский код и выпускал обновления вместе с дизайнерами и backend-командой.',
