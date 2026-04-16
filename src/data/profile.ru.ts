@@ -1,12 +1,12 @@
-import type { DeveloperProfile } from '../types'
+﻿import type { DeveloperProfile } from '../types'
 
 export const profileDataRu: DeveloperProfile = {
   fullName: 'Владимир Потёмкин',
   firstName: 'Владимир',
-  role: 'Frontend-разработчик',
-  tagline: 'Разрабатываю масштабируемые интерфейсы и внутренние продукты на Vue.',
+  role: 'Frontend Developer (TypeScript / Vue / React)',
+  tagline: 'Разрабатываю TypeScript-first интерфейсы и внутренние продукты с фокусом на производительность и качество поставки.',
   summary:
-    'Я фронтенд-разработчик с коммерческим опытом на Vue 3 и экосистеме Vue. Проектирую интерфейсы, работаю с клиентской логикой, API-интеграциями, адаптивной вёрсткой и развитием UI-платформ. В работе опираюсь на SOLID, DRY, KISS, БЭМ и FSD-подход.',
+    'Frontend-разработчик с 2+ годами коммерческого опыта в создании SPA/PWA на Vue 3 и TypeScript. Ключевые зоны ответственности: архитектура интерфейсов, Core Web Vitals (LCP, INP, CLS), тестирование и стабильные релизные процессы. Использую Cursor и GitHub Copilot для ускорения разработки, генерации кода, тестов и документации. Также работаю с актуальными React/Next.js и понимаю SSR/RSC-паттерны.',
   experienceLabel: '2+ года коммерческой веб-разработки',
   availability: {
     location: 'Москва',
@@ -43,19 +43,31 @@ export const profileDataRu: DeveloperProfile = {
     },
   ],
   skills: [
-    { name: 'Vue 3', category: 'frontend' },
+    { name: 'JavaScript (ES2023+)', category: 'language' },
     { name: 'TypeScript', category: 'language' },
+    { name: 'Vue 3', category: 'frontend' },
+    { name: 'Nuxt 3', category: 'frontend' },
+    { name: 'React', category: 'frontend' },
+    { name: 'Next.js', category: 'frontend' },
+    { name: 'SSR / RSC', category: 'frontend' },
+    { name: 'Web Vitals (LCP, INP, CLS)', category: 'frontend' },
     { name: 'Pinia', category: 'state' },
     { name: 'Vuex', category: 'state' },
     { name: 'Vue Router', category: 'frontend' },
-    { name: 'Vite', category: 'tooling' },
-    { name: 'Tailwind', category: 'frontend' },
+    { name: 'Tailwind CSS', category: 'frontend' },
     { name: 'SCSS', category: 'frontend' },
+    { name: 'Vite', category: 'tooling' },
+    { name: 'Docker', category: 'tooling' },
+    { name: 'CI/CD (GitHub Actions)', category: 'tooling' },
+    { name: 'Vitest', category: 'test' },
+    { name: 'Cypress', category: 'test' },
+    { name: 'Playwright', category: 'test' },
+    { name: 'GitHub Copilot', category: 'tooling' },
+    { name: 'Cursor', category: 'tooling' },
+    { name: 'Git', category: 'tooling' },
     { name: 'HTML5', category: 'frontend' },
     { name: 'CSS3', category: 'frontend' },
-    { name: 'Git', category: 'tooling' },
     { name: 'Figma', category: 'design' },
-    { name: 'Vitest/Cypress', category: 'test' },
   ],
   timeline: [
     {
@@ -63,7 +75,7 @@ export const profileDataRu: DeveloperProfile = {
       title: 'Frontend-разработчик',
       company: 'ЭКОН Технологии',
       description:
-        'Разрабатываю крупные клиентские веб-приложения на Vue 3, Pinia, Vue Router и Vite. В проекте СУМУЗ для Вымпелкома развиваю административный SPA для анти-DDoS сервисов: модули мониторинга, ручной митигации, ролевого доступа и интеграции с внутренними API.',
+        'Оптимизировал производительность SPA для внутренних продуктов (LCP: 2.4s -> 1.3s; INP и CLS в пределах целевых значений), внедрил TypeScript-first компонентную архитектуру и сократил количество регрессий в продакшене. Реализовал модули мониторинга, ручной митигации и ролевого доступа в СУМУЗ для Вымпелкома, а также стандартизировал релизный процесс с помощью AI-assisted workflows.',
       projects: [
         {
           id: 'ipam',
@@ -105,14 +117,14 @@ export const profileDataRu: DeveloperProfile = {
       title: 'Frontend-разработчик',
       company: 'Компания не указана в PDF',
       description:
-        'Создавал сайты и веб-приложения на Vue 3, Vuex, Vue Router и Vite, занимался ребрендингом, адаптивной вёрсткой, UX-логикой и интеграцией с API-сервисами.',
+        'Создавал и развивал SPA на Vue 3 с фокусом на UX и производительность: сокращал время загрузки ключевых страниц и повышал стабильность клиентской логики за счёт модульной архитектуры, TypeScript-first подхода и унификации компонентов.',
     },
     {
       year: 'Май 2023 - октябрь 2023',
       title: 'Frontend-разработчик',
       company: 'Easel Pix',
       description:
-        'Разрабатывал сайты и веб-приложения на JavaScript и Vue 3, интегрировал компоненты и API, оптимизировал клиентский код и выпускал обновления вместе с дизайнерами и backend-командой.',
+        'Разрабатывал веб-приложения на JavaScript и Vue 3, внедрял API-интеграции и адаптивную вёрстку, участвовал в полном цикле релиза совместно с дизайнерами и backend-командой.',
     },
   ],
   education: [
@@ -124,45 +136,38 @@ export const profileDataRu: DeveloperProfile = {
       location: 'Москва',
     },
   ],
-  courses: [
-    {
-      year: 2020,
-      provider: 'BrainsCloud',
-      title: 'HTML+CSS',
-    },
-    {
-      year: 2020,
-      provider: 'HTML Academy',
-      title: 'HTML и CSS. Адаптивная вёрстка и автоматизация',
-    },
-  ],
   languages: [
     { name: 'Русский', level: 'Родной' },
     { name: 'Английский', level: 'B1' },
   ],
   cvSections: [
     {
-      title: 'Подход к разработке',
+      title: 'Core Frontend Delivery',
       items: [
-        'Проектирование интерфейсов и клиентской логики',
-        'Интеграция backend API и работа с состоянием',
-        'Развитие UI-платформы и переиспользуемых компонентов',
-        'Настройка Vite, ESLint, Prettier и рабочих процессов команды',
+        'TypeScript как основной язык разработки: строгая типизация, контракты данных и переиспользуемая компонентная архитектура.',
+        'Основной production-стек: Vue 3 / Nuxt 3; есть опыт работы с актуальными React / Next.js под задачи продуктовой разработки.',
       ],
     },
     {
-      title: 'Технический фокус',
+      title: 'Performance & Quality',
       items: [
-        'Vue 3, Pinia, Vue Router, Vite',
-        'TypeScript, JavaScript, Axios',
-        'СУМУЗ: Vuetify, vue-i18n, Chart.js/ApexCharts, role-based routing',
-        'Tailwind CSS, SCSS, адаптивная вёрстка',
-        'SOLID, DRY, KISS, БЭМ, FSD',
+        'Фокус на Core Web Vitals: LCP, INP, CLS, производительность рендеринга, критический путь загрузки и отзывчивость интерфейса.',
+        'Тестирование и контроль качества: Vitest, Cypress, Playwright, снижение регрессий и предсказуемые релизы.',
       ],
     },
     {
-      title: 'Формат работы',
-      items: ['Москва', 'Удалённо, гибрид, офис', 'Готов к командировкам', 'Полная занятость, частичная занятость, проектная работа'],
+      title: 'AI-Assisted Engineering',
+      items: [
+        'Использую Cursor и GitHub Copilot для генерации черновиков кода, unit/e2e тестов и технической документации.',
+        'AI-assisted workflows помогают сокращать time-to-release без потери читаемости, типобезопасности и качества code review.',
+      ],
+    },
+    {
+      title: 'SSR / RSC',
+      items: [
+        'Понимание SSR, streaming, React Server Components, App Router и границ между server/client components.',
+        'При проектировании интерфейсов учитываю SEO, TTFB, кэширование, гидратацию и runtime performance.',
+      ],
     },
   ],
 }

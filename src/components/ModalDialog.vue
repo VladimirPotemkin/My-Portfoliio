@@ -7,10 +7,8 @@
         @click="closeModal"
       >
         <div
-          v-motion
+          v-motion="{ initial: { opacity: 0, scale: 0.94, y: 24 }, enter: { opacity: 1, scale: 1, y: 0 } }"
           class="modal-panel"
-          :initial="{ opacity: 0, scale: 0.94, y: 24 }"
-          :enter="{ opacity: 1, scale: 1, y: 0 }"
           @click.stop
         >
           <div class="modal-header">

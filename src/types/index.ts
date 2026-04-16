@@ -54,12 +54,6 @@ export interface EducationItem {
   location?: string
 }
 
-export interface CourseItem {
-  year: number
-  provider: string
-  title: string
-}
-
 export interface LanguageItem {
   name: string
   level: string
@@ -91,7 +85,6 @@ export interface DeveloperProfile {
   skills: SkillItem[]
   timeline: TimelineItem[]
   education: EducationItem[]
-  courses: CourseItem[]
   languages: LanguageItem[]
   cvSections: CvSection[]
 }

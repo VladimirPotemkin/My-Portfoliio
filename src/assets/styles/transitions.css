@@ -58,3 +58,23 @@
 .modal-fade-leave-to {
   opacity: 0;
 }
+
+/* Theme toggle: плавная смена иконок (Vue <Transition name="theme-icon">) */
+.theme-icon-enter-active,
+.theme-icon-leave-active {
+  transition:
+    opacity 380ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 380ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-icon-enter-from,
+.theme-icon-leave-to {
+  opacity: 0;
+  transform: scale(0.88);
+}
+
+.theme-icon-enter-to,
+.theme-icon-leave-from {
+  opacity: 1;
+  transform: scale(1);
+}

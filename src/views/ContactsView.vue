@@ -1,11 +1,7 @@
 ﻿<template>
   <section class="content-view">
     <div class="content-view__intro">
-      <p class="eyebrow">{{ t('contacts.eyebrow') }}</p>
       <h1 class="content-view__title">{{ t('contacts.title') }}</h1>
-      <p class="body-copy">
-        {{ t('contacts.description') }}
-      </p>
     </div>
 
     <div class="contacts-layout">
@@ -137,9 +133,7 @@ function validateForm(): boolean {
       ? ''
       : t('contacts.formErrors.emailInvalid')
     : t('contacts.formErrors.emailRequired')
-  errors.message = form.message
-    ? ''
-    : t('contacts.formErrors.messageRequired')
+  errors.message = form.message ? '' : t('contacts.formErrors.messageRequired')
 
   return !errors.name && !errors.email && !errors.message
 }

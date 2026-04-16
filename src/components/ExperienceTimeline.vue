@@ -3,10 +3,8 @@
     <article
       v-for="(item, index) in items"
       :key="`${item.year}-${item.company}-${index}`"
-      v-motion
+      v-motion="{ initial: { opacity: 0, y: 100 }, visibleOnce: { opacity: 1, y: 0 } }"
       class="timeline-entry"
-      :initial="{ opacity: 0, y: 100 }"
-      :visibleOnce="{ opacity: 1, y: 0 }"
     >
       <div class="timeline-entry__year">{{ item.year }}</div>
       <div class="timeline-entry__marker" aria-hidden="true">

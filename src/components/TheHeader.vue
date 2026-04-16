@@ -25,7 +25,10 @@
       </button>
     </nav>
 
-    <LanguageSwitcher />
+    <div class="header-controls">
+      <ThemeToggle />
+      <LanguageSwitcher />
+    </div>
   </header>
 </template>
 
@@ -34,6 +37,7 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import LanguageSwitcher from './LanguageSwitcher.vue'
+import ThemeToggle from './ThemeToggle.vue'
 
 const route = useRoute()
 const router = useRouter()
