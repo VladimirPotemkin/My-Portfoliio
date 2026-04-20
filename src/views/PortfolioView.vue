@@ -18,15 +18,22 @@
           <h3 class="portfolio-local-card__title">{{ project.title }}</h3>
         </div>
         <div class="portfolio-local-card__shots">
-          <img
-            v-for="image in project.images"
-            :key="image"
-            class="portfolio-local-card__shot"
-            :src="image"
-            :alt="project.title"
-            loading="lazy"
-            decoding="async"
-          />
+          <button
+            v-for="(image, imageIndex) in project.previewImages"
+            :key="`${image}-${imageIndex}`"
+            class="portfolio-local-card__shot-button"
+            type="button"
+            :aria-label="`${project.title} - ${imageIndex + 1}`"
+            @click="openFeaturedProject(project, imageIndex)"
+          >
+            <img
+              class="portfolio-local-card__shot"
+              :src="image"
+              :alt="project.title"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
         </div>
       </article>
     </div>
@@ -98,17 +105,28 @@
         :motion-visible-once="projectMotionById[repo.id]?.visibleOnce"
       />
     </div>
+
+    <ProjectGalleryModal
+      v-model="isFeaturedGalleryOpen"
+      :title="selectedFeaturedProject?.title ?? t('home.projectGalleryTitle')"
+      :section-label="t('portfolio.featuredTitle')"
+      :description="selectedFeaturedProject?.description ?? ''"
+      :images="selectedFeaturedProject?.galleryImages ?? []"
+      :initial-index="selectedFeaturedImageIndex"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useI18n } from 'vue-i18n'
 import LoaderSpinner from '../components/LoaderSpinner.vue'
 import ProjectCard from '../components/ProjectCard.vue'
+import ProjectGalleryModal from '../components/ProjectGalleryModal.vue'
+import { useResumeProfile } from '../composables/useResumeProfile'
 import { useGithubStore } from '../stores/githubStore'
-import type { GitHubRepo } from '../types'
+import type { GitHubRepo, TimelineProject } from '../types'
 
 type MotionInitial = {
   opacity: number
@@ -136,54 +154,80 @@ type ProjectMotionConfig = {
   visibleOnce: MotionVisibleOnce
 }
 
+type FeaturedProject = {
+  id: string
+  title: string
+  description: string
+  previewImages: string[]
+  galleryImages: string[]
+}
+
 const githubStore = useGithubStore()
-const { t, locale } = useI18n()
+const { t } = useI18n()
+const { activeProfile } = useResumeProfile()
 
 const { availableLanguages, filteredRepos, selectedLanguage, status, error } =
   storeToRefs(githubStore)
 const { allLanguagesFilter, setLanguageFilter, fetchRepos, retryFetch } =
   githubStore
+const selectedFeaturedProjectId = ref<FeaturedProject['id'] | null>(null)
+const selectedFeaturedImageIndex = ref(0)
 
-const featuredProjects = computed(() => {
-  const ipamImages = [
-    '/portfolio/ipam/Screenshot%202026-04-09%20145236.png',
-    '/portfolio/ipam/Screenshot%202026-04-09%20145354.png',
-    '/portfolio/ipam/Screenshot%202026-04-09%20145625.png',
-  ]
-  const sumuzImages = [
-    '/portfolio/sumuz/Screenshot%202026-04-09%20130729.png',
-    '/portfolio/sumuz/Screenshot%202026-04-09%20130742.png',
-    '/portfolio/sumuz/Screenshot%202026-04-09%20130811.png',
-  ]
+const featuredProjects = computed<FeaturedProject[]>(() => {
+  const projectsById = new Map<string, FeaturedProject>()
 
-  if (locale.value === 'ru') {
-    return [
-      {
-        id: 'ipam',
-        title: 'IPAM',
-        images: ipamImages,
-      },
-      {
-        id: 'sumuz',
-        title: 'СУМУЗ',
-        images: sumuzImages,
-      },
-    ]
+  const hasGallery = (
+    project: TimelineProject,
+  ): project is TimelineProject & { images: string[] } =>
+    (project.images?.length ?? 0) > 0
+
+  for (const item of activeProfile.value.timeline) {
+    for (const project of item.projects ?? []) {
+      if (!hasGallery(project) || projectsById.has(project.id)) {
+        continue
+      }
+
+      projectsById.set(project.id, {
+        id: project.id,
+        title: project.name,
+        description: project.description ?? '',
+        previewImages: project.images.slice(0, 3),
+        galleryImages: project.images,
+      })
+    }
   }
 
-  return [
-    {
-      id: 'ipam',
-      title: 'IPAM',
-      images: ipamImages,
-    },
-    {
-      id: 'sumuz',
-      title: 'SUMUZ',
-      images: sumuzImages,
-    },
-  ]
+  return Array.from(projectsById.values())
 })
+
+const selectedFeaturedProject = computed(
+  () =>
+    featuredProjects.value.find(
+      project => project.id === selectedFeaturedProjectId.value,
+    ) ?? null,
+)
+
+const isFeaturedGalleryOpen = computed({
+  get: () => selectedFeaturedProject.value !== null,
+  set: (value: boolean) => {
+    if (!value) {
+      selectedFeaturedProjectId.value = null
+      selectedFeaturedImageIndex.value = 0
+    }
+  },
+})
+
+const openFeaturedProject = (
+  project: FeaturedProject,
+  imageIndex = 0,
+) => {
+  if (!project.galleryImages.length) {
+    return
+  }
+
+  selectedFeaturedProjectId.value = project.id
+  selectedFeaturedImageIndex.value = imageIndex
+}
 
 const hashSeed = (value: string): number => {
   let hash = 2166136261
