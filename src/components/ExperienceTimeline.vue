@@ -3,11 +3,25 @@
     <article
       v-for="(item, index) in items"
       :key="`${item.year}-${item.company}-${index}`"
-      v-motion="{ initial: { opacity: 0, y: 100 }, visibleOnce: { opacity: 1, y: 0 } }"
+      v-motion="{
+        initial: { opacity: 0, y: 100 },
+        visibleOnce: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 850,
+            delay: index * 90,
+            ease: 'ease-out',
+          },
+        },
+      }"
       class="timeline-entry"
     >
       <div class="timeline-entry__year">{{ item.year }}</div>
-      <div class="timeline-entry__marker" aria-hidden="true">
+      <div
+        class="timeline-entry__marker"
+        aria-hidden="true"
+      >
         <span class="timeline-entry__dot"></span>
       </div>
       <div class="timeline-entry__body">
@@ -20,7 +34,9 @@
           v-if="item.projects?.length"
           class="timeline-entry__projects"
         >
-          <span class="timeline-entry__projects-label">{{ projectsLabel }}</span>
+          <span class="timeline-entry__projects-label">{{
+            projectsLabel
+          }}</span>
           <div class="timeline-entry__projects-value">
             <button
               v-for="project in item.projects"

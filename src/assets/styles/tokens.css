@@ -16,7 +16,7 @@
   --shadow-panel: 0 28px 90px rgba(18, 32, 45, 0.1);
   --font-sans: 'Manrope', 'Segoe UI', sans-serif;
   --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
-  --content-width: 76rem;
+  --content-width: clamp(76rem, 90vw, 110rem);
   --radius-panel: 2rem;
 }
 

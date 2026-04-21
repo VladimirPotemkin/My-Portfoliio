@@ -104,7 +104,11 @@
     <section
       v-motion="{
         initial: { opacity: 0, y: 48 },
-        visibleOnce: { opacity: 1, y: 0 },
+        visibleOnce: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 820, ease: 'ease-out' },
+        },
       }"
       class="content-view scroll-section"
     >
