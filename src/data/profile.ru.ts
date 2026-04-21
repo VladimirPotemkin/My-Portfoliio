@@ -3,11 +3,11 @@
 export const profileDataRu: DeveloperProfile = {
   fullName: 'Владимир Потёмкин',
   firstName: 'Владимир',
-  role: 'Frontend Developer (TypeScript / Vue / React)',
-  tagline: 'Разрабатываю TypeScript-first интерфейсы и внутренние продукты с фокусом на производительность и качество поставки.',
+  role: 'Frontend Developer (Vue / JavaScript / TypeScript)',
+  tagline: 'Разрабатываю сложные продуктовые SPA на Vue 3 и TypeScript.',
   summary:
-    'Frontend-разработчик с 2+ годами коммерческого опыта в создании SPA/PWA на Vue 3 и TypeScript. Ключевые зоны ответственности: архитектура интерфейсов, Core Web Vitals (LCP, INP, CLS), тестирование и стабильные релизные процессы. Использую Cursor и GitHub Copilot для ускорения разработки, генерации кода, тестов и документации. Также работаю с актуальными React/Next.js и понимаю SSR/RSC-паттерны.',
-  experienceLabel: '2+ года коммерческой веб-разработки',
+    'Frontend-разработчик с фокусом на Vue 3 / TypeScript и разработку сложных продуктовых SPA. Основной профиль - интерфейсы с насыщенной бизнес-логикой, серверной обработкой данных, большим количеством сущностей и глубокой интеграцией с backend API. Сильная сторона - масштабируемая frontend-архитектура: переиспользуемые компоненты, унификация типовых сценариев, организация проекта по FSD, снижение связности модулей и упрощение дальнейшего развития кодовой базы. На текущем проекте реализовал оркестратор сущностей, сокративший подключение новой доменной модели в UI примерно до 30 минут.',
+  experienceLabel: 'Коммерческая frontend-разработка с мая 2023',
   availability: {
     location: 'Москва',
     citizenship: 'Россия',
@@ -35,39 +35,34 @@ export const profileDataRu: DeveloperProfile = {
       value: 'VladimirPotemkin',
       href: 'https://github.com/VladimirPotemkin',
     },
-    {
-      type: 'phone',
-      label: 'Телефон',
-      value: '+7 (977) 458-48-78',
-      href: 'tel:+79774584878',
-    },
   ],
   skills: [
-    { name: 'JavaScript (ES2023+)', category: 'language' },
-    { name: 'TypeScript', category: 'language' },
     { name: 'Vue 3', category: 'frontend' },
-    { name: 'Nuxt 3', category: 'frontend' },
-    { name: 'React', category: 'frontend' },
-    { name: 'Next.js', category: 'frontend' },
-    { name: 'SSR / RSC', category: 'frontend' },
-    { name: 'Web Vitals (LCP, INP, CLS)', category: 'frontend' },
+    { name: 'TypeScript', category: 'language' },
+    { name: 'JavaScript', category: 'language' },
+    { name: 'UI Architecture', category: 'architecture' },
+    { name: 'FSD', category: 'architecture' },
+    { name: 'SPA', category: 'frontend' },
+    { name: 'Component-Based Development', category: 'architecture' },
+    { name: 'HTML5', category: 'frontend' },
+    { name: 'CSS3', category: 'frontend' },
+    { name: 'SCSS', category: 'frontend' },
+    { name: 'Tailwind CSS', category: 'frontend' },
     { name: 'Pinia', category: 'state' },
     { name: 'Vuex', category: 'state' },
     { name: 'Vue Router', category: 'frontend' },
-    { name: 'Tailwind CSS', category: 'frontend' },
-    { name: 'SCSS', category: 'frontend' },
+    { name: 'SOLID', category: 'architecture' },
+    { name: 'DRY', category: 'architecture' },
+    { name: 'KISS', category: 'architecture' },
+    { name: 'BEM', category: 'architecture' },
     { name: 'Vite', category: 'tooling' },
-    { name: 'Docker', category: 'tooling' },
-    { name: 'CI/CD (GitHub Actions)', category: 'tooling' },
-    { name: 'Vitest', category: 'test' },
-    { name: 'Cypress', category: 'test' },
-    { name: 'Playwright', category: 'test' },
-    { name: 'GitHub Copilot', category: 'tooling' },
-    { name: 'Cursor', category: 'tooling' },
     { name: 'Git', category: 'tooling' },
-    { name: 'HTML5', category: 'frontend' },
-    { name: 'CSS3', category: 'frontend' },
-    { name: 'Figma', category: 'design' },
+    { name: 'ESLint', category: 'tooling' },
+    { name: 'Prettier', category: 'tooling' },
+    { name: 'Claude Code', category: 'ai' },
+    { name: 'Codex', category: 'ai' },
+    { name: 'Cursor', category: 'ai' },
+    { name: 'ChatGPT', category: 'ai' },
   ],
   timeline: [
     {
@@ -75,12 +70,12 @@ export const profileDataRu: DeveloperProfile = {
       title: 'Frontend-разработчик',
       company: 'ЭКОН Технологии',
       description:
-        'Оптимизировал производительность SPA для внутренних продуктов (LCP: 2.4s -> 1.3s; INP и CLS в пределах целевых значений), внедрил TypeScript-first компонентную архитектуру и сократил количество регрессий в продакшене. Реализовал модули мониторинга, ручной митигации и ролевого доступа в СУМУЗ для Вымпелкома, а также стандартизировал релизный процесс с помощью AI-assisted workflows.',
+        'Разрабатываю сложные внутренние SPA на Vue 3 с ролевой моделью доступа, серверной обработкой данных и интеграцией с backend API. Реализовал оркестратор сущностей, сокративший подключение новой доменной модели в UI примерно до 30 минут, унифицировал типовые сценарии через платформенные компоненты, участвовал в миграции с Vue 2 на Vue 3, снизил связность фронтенда через FSD-рефакторинг и повысил устойчивость сложных экранов за счёт lazy loading, кэширования и оптимизации state management.',
       projects: [
         {
           id: 'ipam',
           name: 'IPAM',
-          description: 'Интерфейсы управления адресным пространством, клиентами, сетями и служебными настройками.',
+          description: 'Продукт для управления сетевой инфраструктурой.',
           images: [
             '/portfolio/ipam/Screenshot%202026-04-09%20145236.png',
             '/portfolio/ipam/Screenshot%202026-04-09%20145309.png',
@@ -98,11 +93,14 @@ export const profileDataRu: DeveloperProfile = {
         {
           id: 'ert',
           name: 'ERT для Вымпелком',
+          description:
+            'Интерфейсы для политик, чёрных списков и логирования для Вымпелкома.',
         },
         {
           id: 'sumuz',
           name: 'СУМУЗ для Вымпелком',
-          description: 'Административный SPA для anti-DDoS: мониторинг, ручная митигация, маршруты, роль-доступ.',
+          description:
+            'Админ-панель мониторинга и управления инфраструктурой в системе защиты от DDoS-атак для Вымпелкома.',
           images: [
             '/portfolio/sumuz/Screenshot%202026-04-09%20130729.png',
             '/portfolio/sumuz/Screenshot%202026-04-09%20130742.png',
@@ -113,18 +111,18 @@ export const profileDataRu: DeveloperProfile = {
       ],
     },
     {
-      year: 'Май 2024 - апрель 2025',
+      year: 'Октябрь 2023 - апрель 2025',
       title: 'Frontend-разработчик',
-      company: 'Компания не указана в PDF',
+      company: 'Коммерческие проекты',
       description:
-        'Создавал и развивал SPA на Vue 3 с фокусом на UX и производительность: сокращал время загрузки ключевых страниц и повышал стабильность клиентской логики за счёт модульной архитектуры, TypeScript-first подхода и унификации компонентов.',
+        'Разрабатывал коммерческие интерфейсы на Vue 3, включая клиентскую логику, маршрутизацию и интеграции с backend API. Выстраивал компонентную структуру и пользовательские сценарии, снижая фрагментацию фронтенда, реализовывал ребрендинг и новые продуктовые сценарии с адаптивной вёрсткой и оптимизировал клиентский код и структуру проекта для более простой поддержки и развития.',
     },
     {
       year: 'Май 2023 - октябрь 2023',
       title: 'Frontend-разработчик',
       company: 'Easel Pix',
       description:
-        'Разрабатывал веб-приложения на JavaScript и Vue 3, внедрял API-интеграции и адаптивную вёрстку, участвовал в полном цикле релиза совместно с дизайнерами и backend-командой.',
+        'Разрабатывал интерфейсы на Vue 3 с клиентской логикой, маршрутизацией и интеграциями с REST API. Реализовывал новый функционал и задачи по ребрендингу, оптимизировал загрузку интерфейсов через работу с изображениями, шрифтами и клиентским состоянием, участвовал в интеграции платёжного сценария с backend-командой.',
     },
   ],
   education: [
@@ -136,37 +134,49 @@ export const profileDataRu: DeveloperProfile = {
       location: 'Москва',
     },
   ],
+  training: [
+    {
+      provider: 'BrainsCloud',
+      title: 'HTML+CSS',
+      year: 2020,
+    },
+    {
+      provider: 'HTML Academy',
+      title: 'HTML и CSS. Адаптивная вёрстка и автоматизация',
+      year: 2020,
+    },
+  ],
   languages: [
     { name: 'Русский', level: 'Родной' },
-    { name: 'Английский', level: 'B1' },
+    { name: 'Английский', level: 'B2' },
   ],
   cvSections: [
     {
-      title: 'Core Frontend Delivery',
+      title: 'Продуктовые SPA',
       items: [
-        'TypeScript как основной язык разработки: строгая типизация, контракты данных и переиспользуемая компонентная архитектура.',
-        'Основной production-стек: Vue 3 / Nuxt 3; есть опыт работы с актуальными React / Next.js под задачи продуктовой разработки.',
+        'Сложные продуктовые SPA с насыщенной бизнес-логикой, большим количеством сущностей и интеграцией с backend API.',
+        'Внутренние интерфейсы и админ-панели с ролевой моделью доступа и серверными workflow.',
       ],
     },
     {
-      title: 'Performance & Quality',
+      title: 'Архитектура и масштабирование',
       items: [
-        'Фокус на Core Web Vitals: LCP, INP, CLS, производительность рендеринга, критический путь загрузки и отзывчивость интерфейса.',
-        'Тестирование и контроль качества: Vitest, Cypress, Playwright, снижение регрессий и предсказуемые релизы.',
+        'Переиспользуемые компоненты, унификация типовых UI-сценариев и архитектура на принципах FSD.',
+        'Снижение связности модулей и структура кодовой базы, которую проще масштабировать и поддерживать.',
       ],
     },
     {
-      title: 'AI-Assisted Engineering',
+      title: 'Платформенный подход',
       items: [
-        'Использую Cursor и GitHub Copilot для генерации черновиков кода, unit/e2e тестов и технической документации.',
-        'AI-assisted workflows помогают сокращать time-to-release без потери читаемости, типобезопасности и качества code review.',
+        'Реализовал оркестратор сущностей, сокративший подключение новой доменной модели в UI примерно до 30 минут.',
+        'Стандартизировал типовые сценарии работы с сущностями через платформенные компоненты и общие механики.',
       ],
     },
     {
-      title: 'SSR / RSC',
+      title: 'Инженерная дисциплина',
       items: [
-        'Понимание SSR, streaming, React Server Components, App Router и границ между server/client components.',
-        'При проектировании интерфейсов учитываю SEO, TTFB, кэширование, гидратацию и runtime performance.',
+        'Участвовал в миграции с Vue 2 на Vue 3, обновляя клиентскую логику и базовые интерфейсные механики под новую архитектуру.',
+        'Единый инженерный контур: Vite, ESLint, Prettier, code review, lazy loading, кэширование и оптимизация state management.',
       ],
     },
   ],

@@ -3,11 +3,11 @@
 export const profileData: DeveloperProfile = {
   fullName: 'Vladimir Potemkin',
   firstName: 'Vladimir',
-  role: 'Frontend Developer (TypeScript / Vue / React)',
-  tagline: 'Building TypeScript-first product interfaces with a focus on performance and delivery quality.',
+  role: 'Frontend Developer (Vue / JavaScript / TypeScript)',
+  tagline: 'Building complex product SPAs with Vue 3 and TypeScript.',
   summary:
-    'Frontend developer with 2+ years of commercial experience building SPA/PWA interfaces with Vue 3 and TypeScript. Core focus areas include interface architecture, Core Web Vitals (LCP, INP, CLS), testing discipline, and reliable release workflows. I use Cursor and GitHub Copilot to accelerate code, test, and documentation generation, and I also work with modern React/Next.js and SSR/RSC patterns.',
-  experienceLabel: '2+ years of commercial web development',
+    'Frontend developer focused on Vue 3 / TypeScript and complex product SPAs. My core profile is interfaces with dense business logic, server-driven data processing, many domain entities, and deep backend API integration. Strongest side is scalable frontend architecture: reusable components, unified recurring scenarios, FSD-based project structure, lower module coupling, and easier long-term codebase evolution. On the current project, I built an entity orchestrator that reduced wiring a new domain model into the UI to about 30 minutes.',
+  experienceLabel: 'Commercial frontend development since May 2023',
   availability: {
     location: 'Moscow',
     citizenship: 'Russia',
@@ -35,39 +35,34 @@ export const profileData: DeveloperProfile = {
       value: 'VladimirPotemkin',
       href: 'https://github.com/VladimirPotemkin',
     },
-    {
-      type: 'phone',
-      label: 'Phone',
-      value: '+7 (977) 458-48-78',
-      href: 'tel:+79774584878',
-    },
   ],
   skills: [
-    { name: 'JavaScript (ES2023+)', category: 'language' },
-    { name: 'TypeScript', category: 'language' },
     { name: 'Vue 3', category: 'frontend' },
-    { name: 'Nuxt 3', category: 'frontend' },
-    { name: 'React', category: 'frontend' },
-    { name: 'Next.js', category: 'frontend' },
-    { name: 'SSR / RSC', category: 'frontend' },
-    { name: 'Web Vitals (LCP, INP, CLS)', category: 'frontend' },
+    { name: 'TypeScript', category: 'language' },
+    { name: 'JavaScript', category: 'language' },
+    { name: 'UI Architecture', category: 'architecture' },
+    { name: 'FSD', category: 'architecture' },
+    { name: 'SPA', category: 'frontend' },
+    { name: 'Component-Based Development', category: 'architecture' },
+    { name: 'HTML5', category: 'frontend' },
+    { name: 'CSS3', category: 'frontend' },
+    { name: 'SCSS', category: 'frontend' },
+    { name: 'Tailwind CSS', category: 'frontend' },
     { name: 'Pinia', category: 'state' },
     { name: 'Vuex', category: 'state' },
     { name: 'Vue Router', category: 'frontend' },
-    { name: 'Tailwind CSS', category: 'frontend' },
-    { name: 'SCSS', category: 'frontend' },
+    { name: 'SOLID', category: 'architecture' },
+    { name: 'DRY', category: 'architecture' },
+    { name: 'KISS', category: 'architecture' },
+    { name: 'BEM', category: 'architecture' },
     { name: 'Vite', category: 'tooling' },
-    { name: 'Docker', category: 'tooling' },
-    { name: 'CI/CD (GitHub Actions)', category: 'tooling' },
-    { name: 'Vitest', category: 'test' },
-    { name: 'Cypress', category: 'test' },
-    { name: 'Playwright', category: 'test' },
-    { name: 'GitHub Copilot', category: 'tooling' },
-    { name: 'Cursor', category: 'tooling' },
     { name: 'Git', category: 'tooling' },
-    { name: 'HTML5', category: 'frontend' },
-    { name: 'CSS3', category: 'frontend' },
-    { name: 'Figma', category: 'design' },
+    { name: 'ESLint', category: 'tooling' },
+    { name: 'Prettier', category: 'tooling' },
+    { name: 'Claude Code', category: 'ai' },
+    { name: 'Codex', category: 'ai' },
+    { name: 'Cursor', category: 'ai' },
+    { name: 'ChatGPT', category: 'ai' },
   ],
   timeline: [
     {
@@ -75,12 +70,12 @@ export const profileData: DeveloperProfile = {
       title: 'Frontend Developer',
       company: 'AKON Technologies',
       description:
-        'Improved SPA performance for internal products (LCP: 2.4s -> 1.3s; INP and CLS kept within target ranges), introduced a TypeScript-first component architecture, and reduced production regressions. Delivered monitoring, manual mitigation, and role-based access modules for SUMUZ at VimpelCom, and standardized release workflows with AI-assisted engineering practices.',
+        'Developing complex internal Vue 3 SPAs with role-based access, server-driven data processing, and backend API integrations. Built an entity orchestrator that reduced onboarding a new domain model in the UI to about 30 minutes, unified recurring scenarios via platform components, participated in the Vue 2 to Vue 3 migration, reduced coupling through FSD refactoring, and improved screen stability with lazy loading, caching, and state-management optimization.',
       projects: [
         {
           id: 'ipam',
           name: 'IPAM',
-          description: 'Address space management interfaces for customers, networks, and service settings.',
+          description: 'Product for managing network infrastructure.',
           images: [
             '/portfolio/ipam/Screenshot%202026-04-09%20145236.png',
             '/portfolio/ipam/Screenshot%202026-04-09%20145309.png',
@@ -98,11 +93,14 @@ export const profileData: DeveloperProfile = {
         {
           id: 'ert',
           name: 'ERT for VimpelCom',
+          description:
+            'Interfaces for policies, blacklists, and logging workflows for VimpelCom.',
         },
         {
           id: 'sumuz',
           name: 'SUMUZ for VimpelCom',
-          description: 'Administrative SPA for anti-DDoS services: monitoring, manual mitigation, route workflows, and role-based access.',
+          description:
+            'Admin dashboard for monitoring and infrastructure control in an anti-DDoS system for VimpelCom.',
           images: [
             '/portfolio/sumuz/Screenshot%202026-04-09%20130729.png',
             '/portfolio/sumuz/Screenshot%202026-04-09%20130742.png',
@@ -113,18 +111,18 @@ export const profileData: DeveloperProfile = {
       ],
     },
     {
-      year: 'May 2024 - April 2025',
+      year: 'October 2023 - April 2025',
       title: 'Frontend Developer',
-      company: 'Company not specified in PDF',
+      company: 'Commercial projects',
       description:
-        'Built and evolved Vue 3 SPAs with a focus on UX and performance, reducing key page load time and improving client-side stability through modular architecture, TypeScript-first development, and component standardization.',
+        'Built commercial Vue 3 interfaces with client-side logic, routing, and backend API integrations. Structured component architecture and user flows to reduce frontend fragmentation, implemented rebranding and new product scenarios including responsive UI, and optimized project structure and client code for easier support and further evolution.',
     },
     {
       year: 'May 2023 - October 2023',
       title: 'Frontend Developer',
       company: 'Easel Pix',
       description:
-        'Developed web applications with JavaScript and Vue 3, delivered API integrations and responsive UI, and participated in the full release cycle together with designers and backend engineers.',
+        'Developed Vue 3 interfaces with client-side logic, routing, and REST API integrations. Delivered new functionality and rebranding tasks, optimized interface loading across images, fonts, and client state, and helped integrate a payment flow with the backend team.',
     },
   ],
   education: [
@@ -136,37 +134,49 @@ export const profileData: DeveloperProfile = {
       location: 'Moscow',
     },
   ],
+  training: [
+    {
+      provider: 'BrainsCloud',
+      title: 'HTML+CSS',
+      year: 2020,
+    },
+    {
+      provider: 'HTML Academy',
+      title: 'HTML and CSS. Responsive Layout and Automation',
+      year: 2020,
+    },
+  ],
   languages: [
     { name: 'Russian', level: 'Native' },
-    { name: 'English', level: 'B1' },
+    { name: 'English', level: 'B2' },
   ],
   cvSections: [
     {
-      title: 'Core Delivery',
+      title: 'Product SPA Delivery',
       items: [
-        'TypeScript-first frontend development: strict typing, reusable UI contracts, and maintainable component architecture.',
-        'Commercial delivery with Vue 3 / Nuxt 3; working experience with modern React / Next.js on product-facing tasks.',
+        'Complex product SPAs with dense business logic, many entities, and backend API integrations.',
+        'Internal interfaces and admin panels with role-based access and server-driven workflows.',
       ],
     },
     {
-      title: 'Performance & Quality',
+      title: 'Scalable Frontend Architecture',
       items: [
-        'Core Web Vitals focus: LCP, INP, CLS, rendering performance, critical rendering path, and interaction responsiveness.',
-        'Testing stack: Vitest, Cypress, Playwright; release discipline, regression control, and code review hygiene.',
+        'Reusable components, unified recurring UI scenarios, and architecture built around FSD principles.',
+        'Reduced module coupling and a codebase structure that is easier to scale and maintain over time.',
       ],
     },
     {
-      title: 'AI-Assisted Engineering',
+      title: 'Platform Approach',
       items: [
-        'Use of Cursor and GitHub Copilot to generate code drafts, unit/e2e tests, and technical documentation.',
-        'AI-assisted workflows used to shorten time-to-release without compromising readability, review quality, and type safety.',
+        'Built an entity orchestrator that reduced wiring a new domain model into the UI to about 30 minutes.',
+        'Standardized typical entity flows through platform components and shared mechanics.',
       ],
     },
     {
-      title: 'SSR / RSC',
+      title: 'Engineering Discipline',
       items: [
-        'Understanding of SSR, streaming, React Server Components, App Router, and server/client boundaries.',
-        'Design decisions made with SEO, TTFB, caching, hydration, and runtime performance in mind.',
+        'Participated in Vue 2 to Vue 3 migration, keeping client logic and baseline UI mechanics aligned with updated architecture.',
+        'Daily engineering contour: Vite, ESLint, Prettier, code review, lazy loading, caching, and state-management optimization.',
       ],
     },
   ],

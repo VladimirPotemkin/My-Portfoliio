@@ -18,7 +18,7 @@
     "locationLine": "Москва · Офис / Удалённо / Гибрид"
   },
   "home": {
-    "eyebrow": "Vue / TypeScript / Frontend",
+    "eyebrow": "Vue / JavaScript / TypeScript",
     "heroLabel": "Доступен для работы",
     "experienceSection": "Опыт",
     "timelineSection": "Ключевые этапы и проекты",
@@ -38,6 +38,7 @@
     "cvStack": "Технологический стек",
     "cvExperience": "Опыт работы",
     "cvEducation": "Образование",
+    "cvTraining": "Профильное обучение",
     "cvLanguages": "Языки",
     "cvWorkFormat": "Формат работы",
     "cvBusinessTripsYes": "Готов к командировкам",
@@ -47,8 +48,10 @@
     "cvSkillCategories": {
       "language": "Языки",
       "frontend": "Frontend",
+      "architecture": "Архитектура",
       "state": "Управление состоянием",
       "tooling": "Инструменты",
+      "ai": "AI-инструменты",
       "test": "Тестирование",
       "design": "Дизайн"
     },

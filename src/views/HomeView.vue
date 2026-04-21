@@ -28,16 +28,16 @@
           <p class="meta-pill">
             <span>{{ activeProfile.fullName }}</span>
             <span class="meta-dot"></span>
-            <span>{{ t('profile.role') }}</span>
+            <span>{{ activeProfile.role }}</span>
           </p>
 
           <div class="space-y-5">
             <p class="eyebrow">{{ t('home.eyebrow') }}</p>
-            <h1 class="hero-title">
-              {{ t('profile.tagline') }}
-            </h1>
+            <h3 class="hero-title">
+              {{ activeProfile.tagline }}
+            </h3>
             <p class="body-copy">
-              {{ t('profile.summary') }}
+              {{ activeProfile.summary }}
             </p>
           </div>
 
@@ -69,7 +69,7 @@
             <article class="surface-panel home-stage__fact-card">
               <p class="info-title">{{ t('home.experienceTitle') }}</p>
               <p class="info-body">
-                {{ t('profile.experienceLabel') }}
+                {{ activeProfile.experienceLabel }}
               </p>
             </article>
 
@@ -83,7 +83,7 @@
             <article class="surface-panel home-stage__fact-card">
               <p class="info-title">{{ t('home.locationTitle') }}</p>
               <p class="info-body">
-                {{ t('profile.locationLine') }}
+                {{ availabilityLocationLine }}
               </p>
             </article>
           </div>
@@ -280,6 +280,20 @@
         </section>
 
         <section class="cv-block surface-panel">
+          <p class="info-title">{{ t('home.cvTraining') }}</p>
+          <div class="cv-stack">
+            <article
+              v-for="item in activeProfile.training"
+              :key="`${item.provider}-${item.title}-${item.year}`"
+              class="cv-stack__item"
+            >
+              <h3 class="cv-stack__title">{{ item.provider }}</h3>
+              <p class="cv-stack__meta">{{ item.title }} · {{ item.year }}</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="cv-block surface-panel">
           <p class="info-title">{{ t('home.cvLanguages') }}</p>
           <div class="cv-stack">
             <article
@@ -335,6 +349,11 @@ const availabilityPrimaryLine = computed(
     `${activeProfile.value.availability.location} · ${activeProfile.value.availability.citizenship}`,
 )
 
+const availabilityLocationLine = computed(
+  () =>
+    `${activeProfile.value.availability.location} · ${activeProfile.value.availability.workModes.join(' / ')}`,
+)
+
 const availabilityModesLine = computed(() =>
   activeProfile.value.availability.workModes.join(' / '),
 )
@@ -352,10 +371,10 @@ const availabilityTripsLine = computed(() =>
 const skillCategoryOrder = [
   'language',
   'frontend',
+  'architecture',
   'state',
   'tooling',
-  'test',
-  'design',
+  'ai',
 ] as const
 
 const skillGroups = computed(() =>
@@ -623,6 +642,22 @@ function printCv(): void {
                   <div class="stack-item">
                     <h3>${escapeHtml(item.institution)}</h3>
                     <p class="meta">${escapeHtml(`${item.degree} · ${item.field} · ${item.year}`)}</p>
+                  </div>
+                `,
+              )
+              .join('')}
+          </div>
+        </section>
+
+        <section class="section card">
+          <h2>${escapeHtml(t('home.cvTraining'))}</h2>
+          <div class="stack">
+            ${profile.training
+              .map(
+                item => `
+                  <div class="stack-item">
+                    <h3>${escapeHtml(item.provider)}</h3>
+                    <p class="meta">${escapeHtml(`${item.title} · ${item.year}`)}</p>
                   </div>
                 `,
               )

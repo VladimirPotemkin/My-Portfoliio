@@ -113,6 +113,22 @@
           </div>
         </section>
 
+        <section class="cv-document__section">
+          <h2 class="cv-document__section-title">{{ t('home.cvTraining') }}</h2>
+          <div class="cv-document__stack">
+            <article
+              v-for="item in activeProfile.training"
+              :key="`${item.provider}-${item.title}-${item.year}`"
+              class="cv-document__stack-item"
+            >
+              <h3 class="cv-document__item-title">{{ item.provider }}</h3>
+              <p class="cv-document__item-text">
+                {{ item.title }} | {{ item.year }}
+              </p>
+            </article>
+          </div>
+        </section>
+
         <section class="cv-document__section cv-document__section--full">
           <h2 class="cv-document__section-title">{{ t('home.cvExperience') }}</h2>
           <div class="cv-document__stack">

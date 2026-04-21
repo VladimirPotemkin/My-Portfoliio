@@ -36,7 +36,15 @@ export interface TimelineProject {
 
 export interface SkillItem {
   name: string
-  category: 'frontend' | 'state' | 'tooling' | 'design' | 'language' | 'test'
+  category:
+    | 'frontend'
+    | 'state'
+    | 'tooling'
+    | 'design'
+    | 'language'
+    | 'test'
+    | 'architecture'
+    | 'ai'
 }
 
 export interface ContactLink {
@@ -52,6 +60,12 @@ export interface EducationItem {
   field: string
   year: number
   location?: string
+}
+
+export interface TrainingItem {
+  provider: string
+  title: string
+  year: number
 }
 
 export interface LanguageItem {
@@ -85,6 +99,7 @@ export interface DeveloperProfile {
   skills: SkillItem[]
   timeline: TimelineItem[]
   education: EducationItem[]
+  training: TrainingItem[]
   languages: LanguageItem[]
   cvSections: CvSection[]
 }

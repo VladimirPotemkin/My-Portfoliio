@@ -7,10 +7,10 @@ import type { TimelineProject } from '../types'
 const skillCategoryOrder = [
   'language',
   'frontend',
+  'architecture',
   'state',
   'tooling',
-  'test',
-  'design',
+  'ai',
 ] as const
 
 export function useResumeProfile() {

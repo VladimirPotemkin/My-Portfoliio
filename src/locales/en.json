@@ -18,7 +18,7 @@
     "locationLine": "Moscow · Office / Remote / Hybrid"
   },
   "home": {
-    "eyebrow": "Vue / TypeScript / Frontend",
+    "eyebrow": "Vue / JavaScript / TypeScript",
     "heroLabel": "Available for work",
     "experienceSection": "Experience",
     "timelineSection": "Key milestones and shipped work",
@@ -38,6 +38,7 @@
     "cvStack": "Technology stack",
     "cvExperience": "Work experience",
     "cvEducation": "Education",
+    "cvTraining": "Professional training",
     "cvLanguages": "Languages",
     "cvWorkFormat": "Work format",
     "cvBusinessTripsYes": "Open to business trips",
@@ -47,8 +48,10 @@
     "cvSkillCategories": {
       "language": "Languages",
       "frontend": "Frontend",
+      "architecture": "Architecture",
       "state": "State management",
       "tooling": "Tooling",
+      "ai": "AI tools",
       "test": "Testing",
       "design": "Design"
     },
