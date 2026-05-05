@@ -8,7 +8,7 @@ const sectionTitleKeys = {
 } as const
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   linkActiveClass: 'is-active',
   linkExactActiveClass: 'is-exact-active',
   routes: [
@@ -45,8 +45,7 @@ const router = createRouter({
 })
 
 router.afterEach(to => {
-  const titleKey =
-    sectionTitleKeys[to.hash as keyof typeof sectionTitleKeys] ?? to.meta.title
+  const titleKey = sectionTitleKeys[to.hash as keyof typeof sectionTitleKeys] ?? to.meta.title
 
   document.title = `${i18n.global.t(titleKey)} | ${i18n.global.t('document.title')}`
 })
