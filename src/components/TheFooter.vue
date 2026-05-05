@@ -5,26 +5,14 @@
     </p>
     <div class="app-footer__links">
       <a
+        v-for="contact in footerContacts"
+        :key="contact.type"
         class="app-footer__link"
-        href="mailto:v.potemkin93@yandex.ru"
-      >
-        {{ t('footer.email') }}
-      </a>
-      <a
-        class="app-footer__link"
-        href="https://github.com/VladimirPotemkin"
-        target="_blank"
+        :href="contact.href"
+        :target="isExternalContact(contact.href) ? '_blank' : undefined"
         rel="noreferrer"
       >
-        {{ t('footer.github') }}
-      </a>
-      <a
-        class="app-footer__link"
-        href="https://t.me/VladimirPotemkin"
-        target="_blank"
-        rel="noreferrer"
-      >
-        {{ t('footer.telegram') }}
+        {{ t(contact.labelKey) }}
       </a>
     </div>
   </footer>
@@ -33,12 +21,42 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { profileData } from '../data/profile'
-import { profileDataRu } from '../data/profile.ru'
+import { useResumeProfile } from '../composables/useResumeProfile'
 
 const currentYear = new Date().getFullYear()
-const { t, locale } = useI18n()
-const fullName = computed(() =>
-  locale.value === 'ru' ? profileDataRu.fullName : profileData.fullName,
+const { t } = useI18n()
+const { activeProfile } = useResumeProfile()
+
+const footerContactTypeOrder = ['email', 'github', 'telegram'] as const
+const footerLabelByType: Record<(typeof footerContactTypeOrder)[number], string> =
+  {
+    email: 'footer.email',
+    github: 'footer.github',
+    telegram: 'footer.telegram',
+  }
+
+const fullName = computed(() => activeProfile.value.fullName)
+
+const footerContacts = computed(() =>
+  footerContactTypeOrder.reduce<
+    Array<{ type: (typeof footerContactTypeOrder)[number]; href: string; labelKey: string }>
+  >((accumulator, type) => {
+    const contact = activeProfile.value.contacts.find(item => item.type === type)
+    if (!contact?.href) {
+      return accumulator
+    }
+
+    accumulator.push({
+      type,
+      href: contact.href,
+      labelKey: footerLabelByType[type],
+    })
+
+    return accumulator
+  }, []),
 )
+
+function isExternalContact(href: string): boolean {
+  return href.startsWith('http://') || href.startsWith('https://')
+}
 </script>

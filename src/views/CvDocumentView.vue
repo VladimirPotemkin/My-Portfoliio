@@ -99,34 +99,24 @@
 
         <section class="cv-document__section">
           <h2 class="cv-document__section-title">{{ t('home.cvEducation') }}</h2>
-          <div class="cv-document__stack">
-            <article
-              v-for="item in activeProfile.education"
-              :key="`${item.institution}-${item.year}`"
-              class="cv-document__stack-item"
-            >
-              <h3 class="cv-document__item-title">{{ item.institution }}</h3>
-              <p class="cv-document__item-text">
-                {{ item.degree }} | {{ item.field }} | {{ item.year }}
-              </p>
-            </article>
-          </div>
+          <CvStackItems
+            :items="educationStackItems"
+            stack-class="cv-document__stack"
+            item-class="cv-document__stack-item"
+            title-class="cv-document__item-title"
+            text-class="cv-document__item-text"
+          />
         </section>
 
         <section class="cv-document__section">
           <h2 class="cv-document__section-title">{{ t('home.cvTraining') }}</h2>
-          <div class="cv-document__stack">
-            <article
-              v-for="item in activeProfile.training"
-              :key="`${item.provider}-${item.title}-${item.year}`"
-              class="cv-document__stack-item"
-            >
-              <h3 class="cv-document__item-title">{{ item.provider }}</h3>
-              <p class="cv-document__item-text">
-                {{ item.title }} | {{ item.year }}
-              </p>
-            </article>
-          </div>
+          <CvStackItems
+            :items="trainingStackItems"
+            stack-class="cv-document__stack"
+            item-class="cv-document__stack-item"
+            title-class="cv-document__item-title"
+            text-class="cv-document__item-text"
+          />
         </section>
 
         <section class="cv-document__section cv-document__section--full">
@@ -157,16 +147,13 @@
 
         <section class="cv-document__section">
           <h2 class="cv-document__section-title">{{ t('home.cvLanguages') }}</h2>
-          <div class="cv-document__stack">
-            <article
-              v-for="language in activeProfile.languages"
-              :key="language.name"
-              class="cv-document__stack-item"
-            >
-              <h3 class="cv-document__item-title">{{ language.name }}</h3>
-              <p class="cv-document__item-text">{{ language.level }}</p>
-            </article>
-          </div>
+          <CvStackItems
+            :items="languageStackItems"
+            stack-class="cv-document__stack"
+            item-class="cv-document__stack-item"
+            title-class="cv-document__item-title"
+            text-class="cv-document__item-text"
+          />
         </section>
       </div>
     </article>
@@ -174,9 +161,10 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick, onMounted } from 'vue'
+import { computed, nextTick, onMounted } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import CvStackItems from '../components/CvStackItems.vue'
 import { useResumeProfile } from '../composables/useResumeProfile'
 
 const route = useRoute()
@@ -192,6 +180,30 @@ const {
 } = useResumeProfile()
 
 const cvPdfHref = '/cv/vladimir-potemkin-frontend-developer-cv.pdf'
+
+const educationStackItems = computed(() =>
+  activeProfile.value.education.map(item => ({
+    id: `${item.institution}-${item.year}`,
+    title: item.institution,
+    meta: `${item.degree} | ${item.field} | ${item.year}`,
+  })),
+)
+
+const trainingStackItems = computed(() =>
+  activeProfile.value.training.map(item => ({
+    id: `${item.provider}-${item.title}-${item.year}`,
+    title: item.provider,
+    meta: `${item.title} | ${item.year}`,
+  })),
+)
+
+const languageStackItems = computed(() =>
+  activeProfile.value.languages.map(language => ({
+    id: language.name,
+    title: language.name,
+    meta: language.level,
+  })),
+)
 
 function printCurrentPage(): void {
   window.print()

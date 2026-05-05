@@ -59,6 +59,8 @@ export const useGithubStore = defineStore('github', () => {
   const error = ref<string | null>(null)
   const activeUsername = ref(resolveGithubUsername())
   const selectedLanguage = ref<string>(ALL_LANGUAGES_FILTER)
+  const currentRequestId = ref(0)
+  const currentAbortController = ref<AbortController | null>(null)
 
   const availableLanguages = computed(() =>
     Array.from(new Set(repos.value.map(({ language }) => language).filter((language): language is string => Boolean(language)))).sort((left, right) =>
@@ -76,6 +78,12 @@ export const useGithubStore = defineStore('github', () => {
 
   async function fetchRepos(username?: string): Promise<void> {
     const resolvedUsername = resolveGithubUsername(username)
+    const nextRequestId = currentRequestId.value + 1
+    currentRequestId.value = nextRequestId
+
+    currentAbortController.value?.abort()
+    const abortController = new AbortController()
+    currentAbortController.value = abortController
 
     status.value = 'loading'
     error.value = null
@@ -83,10 +91,15 @@ export const useGithubStore = defineStore('github', () => {
 
     try {
       const response = await fetch(`https://api.github.com/users/${resolvedUsername}/repos?per_page=100&sort=updated`, {
+        signal: abortController.signal,
         headers: {
           Accept: 'application/vnd.github+json',
         },
       })
+
+      if (nextRequestId !== currentRequestId.value) {
+        return
+      }
 
       if (!response.ok) {
         throw new Error(
@@ -97,6 +110,10 @@ export const useGithubStore = defineStore('github', () => {
       }
 
       const payload: unknown = await response.json()
+
+      if (nextRequestId !== currentRequestId.value) {
+        return
+      }
 
       if (!Array.isArray(payload)) {
         throw new Error('GitHub API returned an unexpected payload format.')
@@ -116,12 +133,24 @@ export const useGithubStore = defineStore('github', () => {
 
       status.value = 'success'
     } catch (caughtError) {
+      if (nextRequestId !== currentRequestId.value) {
+        return
+      }
+
+      if (caughtError instanceof DOMException && caughtError.name === 'AbortError') {
+        return
+      }
+
       repos.value = []
       status.value = 'error'
       error.value =
         caughtError instanceof Error
           ? caughtError.message
           : 'Unknown error while loading GitHub data.'
+    } finally {
+      if (nextRequestId === currentRequestId.value) {
+        currentAbortController.value = null
+      }
     }
   }
 

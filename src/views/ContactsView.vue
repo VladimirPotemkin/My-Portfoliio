@@ -91,13 +91,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive } from 'vue'
+import { reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useResumeProfile } from '../composables/useResumeProfile'
 import { useToast } from '../composables/useToast'
-import { profileData } from '../data/profile'
-import { profileDataRu } from '../data/profile.ru'
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
 const { showToast } = useToast()
 
 const form = reactive({
@@ -112,15 +111,7 @@ const errors = reactive({
   message: '',
 })
 
-const activeProfile = computed(() =>
-  locale.value === 'ru' ? profileDataRu : profileData,
-)
-
-const primaryContacts = computed(() =>
-  activeProfile.value.contacts.filter(({ type }) =>
-    ['email', 'telegram', 'github'].includes(type),
-  ),
-)
+const { primaryContacts } = useResumeProfile()
 
 function isValidEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)

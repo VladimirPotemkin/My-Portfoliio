@@ -30,14 +30,27 @@ export function useResumeProfile() {
   const primaryEmail = computed(() =>
     activeProfile.value.contacts.find(({ type }) => type === 'email'),
   )
+  const primaryEmailHref = computed(() => primaryEmail.value?.href ?? '')
 
   const githubContact = computed(() =>
     activeProfile.value.contacts.find(({ type }) => type === 'github'),
+  )
+  const githubContactHref = computed(() => githubContact.value?.href ?? '')
+
+  const primaryContacts = computed(() =>
+    activeProfile.value.contacts.filter(({ type }) =>
+      ['email', 'telegram', 'github'].includes(type),
+    ),
   )
 
   const availabilityPrimaryLine = computed(
     () =>
       `${activeProfile.value.availability.location} | ${activeProfile.value.availability.citizenship}`,
+  )
+
+  const availabilityLocationLine = computed(
+    () =>
+      `${activeProfile.value.availability.location} | ${activeProfile.value.availability.workModes.join(' / ')}`,
   )
 
   const availabilityModesLine = computed(() =>
@@ -80,8 +93,12 @@ export function useResumeProfile() {
     activeProfile,
     highlightedSkills,
     primaryEmail,
+    primaryEmailHref,
     githubContact,
+    githubContactHref,
+    primaryContacts,
     availabilityPrimaryLine,
+    availabilityLocationLine,
     availabilityModesLine,
     availabilityEmploymentLine,
     availabilityTripsLine,

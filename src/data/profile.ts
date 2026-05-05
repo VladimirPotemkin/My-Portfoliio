@@ -1,12 +1,18 @@
 ﻿import type { DeveloperProfile } from '../types'
+import {
+  createSharedContacts,
+  ipamProjectImages,
+  sharedSkills,
+  sumuzProjectImages,
+} from './profile.shared'
 
 export const profileData: DeveloperProfile = {
   fullName: 'Vladimir Potemkin',
   firstName: 'Vladimir',
   role: 'Frontend Developer (Vue / JavaScript / TypeScript)',
-  tagline: 'Building complex product SPAs with Vue 3 and TypeScript.',
+  tagline: 'Building complex product SPAs with Vue 3/React and TypeScript.',
   summary:
-    'Frontend developer focused on Vue 3 / TypeScript and complex product SPAs. My core profile is interfaces with dense business logic, server-driven data processing, many domain entities, and deep backend API integration. Strongest side is scalable frontend architecture: reusable components, unified recurring scenarios, FSD-based project structure, lower module coupling, and easier long-term codebase evolution. On the current project, I built an entity orchestrator that reduced wiring a new domain model into the UI to about 30 minutes.',
+    'Frontend developer focused on Vue 3 / React and TypeScript and complex product SPAs. My core profile is interfaces with dense business logic, server-driven data processing, many domain entities, and deep backend API integration. Strongest side is scalable frontend architecture: reusable components, unified recurring scenarios, FSD-based project structure, lower module coupling, and easier long-term codebase evolution. On the current project, I built an entity orchestrator that reduced wiring a new domain model into the UI to about 30 minutes.',
   experienceLabel: 'Commercial frontend development since May 2023',
   availability: {
     location: 'Moscow',
@@ -16,97 +22,36 @@ export const profileData: DeveloperProfile = {
     workModes: ['Office', 'Remote', 'Hybrid'],
     employmentTypes: ['Full-time', 'Part-time', 'Project-based'],
   },
-  contacts: [
-    {
-      type: 'email',
-      label: 'Email',
-      value: 'v.potemkin93@yandex.ru',
-      href: 'mailto:v.potemkin93@yandex.ru',
-    },
-    {
-      type: 'telegram',
-      label: 'Telegram',
-      value: '@VladimirPotemkin',
-      href: 'https://t.me/VladimirPotemkin',
-    },
-    {
-      type: 'github',
-      label: 'GitHub',
-      value: 'VladimirPotemkin',
-      href: 'https://github.com/VladimirPotemkin',
-    },
-  ],
-  skills: [
-    { name: 'Vue 3', category: 'frontend' },
-    { name: 'TypeScript', category: 'language' },
-    { name: 'JavaScript', category: 'language' },
-    { name: 'UI Architecture', category: 'architecture' },
-    { name: 'FSD', category: 'architecture' },
-    { name: 'SPA', category: 'frontend' },
-    { name: 'Component-Based Development', category: 'architecture' },
-    { name: 'HTML5', category: 'frontend' },
-    { name: 'CSS3', category: 'frontend' },
-    { name: 'SCSS', category: 'frontend' },
-    { name: 'Tailwind CSS', category: 'frontend' },
-    { name: 'Pinia', category: 'state' },
-    { name: 'Vuex', category: 'state' },
-    { name: 'Vue Router', category: 'frontend' },
-    { name: 'SOLID', category: 'architecture' },
-    { name: 'DRY', category: 'architecture' },
-    { name: 'KISS', category: 'architecture' },
-    { name: 'BEM', category: 'architecture' },
-    { name: 'Vite', category: 'tooling' },
-    { name: 'Git', category: 'tooling' },
-    { name: 'ESLint', category: 'tooling' },
-    { name: 'Prettier', category: 'tooling' },
-    { name: 'Claude Code', category: 'ai' },
-    { name: 'Codex', category: 'ai' },
-    { name: 'Cursor', category: 'ai' },
-    { name: 'ChatGPT', category: 'ai' },
-  ],
+  contacts: createSharedContacts({
+    email: 'Email',
+    telegram: 'Telegram',
+    github: 'GitHub',
+  }),
+  skills: sharedSkills,
   timeline: [
     {
       year: 'April 2025 - Present',
       title: 'Frontend Developer',
       company: 'AKON Technologies',
       description:
-        'Developing complex internal Vue 3 SPAs with role-based access, server-driven data processing, and backend API integrations. Built an entity orchestrator that reduced onboarding a new domain model in the UI to about 30 minutes, unified recurring scenarios via platform components, participated in the Vue 2 to Vue 3 migration, reduced coupling through FSD refactoring, and improved screen stability with lazy loading, caching, and state-management optimization.',
+        'Developing complex internal Vue 3/React SPAs with role-based access, server-driven data processing, and backend API integrations. Built an entity orchestrator that reduced onboarding a new domain model in the UI to about 30 minutes, unified recurring scenarios via platform components, participated in the Vue 2 to Vue 3 migration, reduced coupling through FSD refactoring, and improved screen stability with lazy loading, caching, and state-management optimization.',
       projects: [
         {
           id: 'ipam',
           name: 'IPAM',
           description: 'Product for managing network infrastructure.',
-          images: [
-            '/portfolio/ipam/Screenshot%202026-04-09%20145236.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145309.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145318.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145354.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145359.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145413.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145449.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145456.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145518.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145546.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145625.png',
-          ],
+          images: [...ipamProjectImages],
         },
         {
           id: 'ert',
           name: 'ERT for VimpelCom',
-          description:
-            'Interfaces for policies, blacklists, and logging workflows for VimpelCom.',
+          description: 'Interfaces for policies, blacklists, and logging workflows for VimpelCom.',
         },
         {
           id: 'sumuz',
           name: 'SUMUZ for VimpelCom',
-          description:
-            'Admin dashboard for monitoring and infrastructure control in an anti-DDoS system for VimpelCom.',
-          images: [
-            '/portfolio/sumuz/Screenshot%202026-04-09%20130729.png',
-            '/portfolio/sumuz/Screenshot%202026-04-09%20130742.png',
-            '/portfolio/sumuz/Screenshot%202026-04-09%20130811.png',
-            '/portfolio/sumuz/Screenshot%202026-04-09%20130817.png',
-          ],
+          description: 'Admin dashboard for monitoring and infrastructure control in an anti-DDoS system for VimpelCom.',
+          images: [...sumuzProjectImages],
         },
       ],
     },

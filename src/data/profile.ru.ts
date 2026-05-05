@@ -1,4 +1,10 @@
 ﻿import type { DeveloperProfile } from '../types'
+import {
+  createSharedContacts,
+  ipamProjectImages,
+  sharedSkills,
+  sumuzProjectImages,
+} from './profile.shared'
 
 export const profileDataRu: DeveloperProfile = {
   fullName: 'Владимир Потёмкин',
@@ -16,97 +22,36 @@ export const profileDataRu: DeveloperProfile = {
     workModes: ['Офис', 'Удалённо', 'Гибрид'],
     employmentTypes: ['Полная занятость', 'Частичная занятость', 'Проектная работа'],
   },
-  contacts: [
-    {
-      type: 'email',
-      label: 'Почта',
-      value: 'v.potemkin93@yandex.ru',
-      href: 'mailto:v.potemkin93@yandex.ru',
-    },
-    {
-      type: 'telegram',
-      label: 'Telegram',
-      value: '@VladimirPotemkin',
-      href: 'https://t.me/VladimirPotemkin',
-    },
-    {
-      type: 'github',
-      label: 'GitHub',
-      value: 'VladimirPotemkin',
-      href: 'https://github.com/VladimirPotemkin',
-    },
-  ],
-  skills: [
-    { name: 'Vue 3', category: 'frontend' },
-    { name: 'TypeScript', category: 'language' },
-    { name: 'JavaScript', category: 'language' },
-    { name: 'UI Architecture', category: 'architecture' },
-    { name: 'FSD', category: 'architecture' },
-    { name: 'SPA', category: 'frontend' },
-    { name: 'Component-Based Development', category: 'architecture' },
-    { name: 'HTML5', category: 'frontend' },
-    { name: 'CSS3', category: 'frontend' },
-    { name: 'SCSS', category: 'frontend' },
-    { name: 'Tailwind CSS', category: 'frontend' },
-    { name: 'Pinia', category: 'state' },
-    { name: 'Vuex', category: 'state' },
-    { name: 'Vue Router', category: 'frontend' },
-    { name: 'SOLID', category: 'architecture' },
-    { name: 'DRY', category: 'architecture' },
-    { name: 'KISS', category: 'architecture' },
-    { name: 'BEM', category: 'architecture' },
-    { name: 'Vite', category: 'tooling' },
-    { name: 'Git', category: 'tooling' },
-    { name: 'ESLint', category: 'tooling' },
-    { name: 'Prettier', category: 'tooling' },
-    { name: 'Claude Code', category: 'ai' },
-    { name: 'Codex', category: 'ai' },
-    { name: 'Cursor', category: 'ai' },
-    { name: 'ChatGPT', category: 'ai' },
-  ],
+  contacts: createSharedContacts({
+    email: 'Почта',
+    telegram: 'Telegram',
+    github: 'GitHub',
+  }),
+  skills: sharedSkills,
   timeline: [
     {
       year: 'Апрель 2025 - настоящее время',
       title: 'Frontend-разработчик',
       company: 'ЭКОН Технологии',
       description:
-        'Разрабатываю сложные внутренние SPA на Vue 3 с ролевой моделью доступа, серверной обработкой данных и интеграцией с backend API. Реализовал оркестратор сущностей, сокративший подключение новой доменной модели в UI примерно до 30 минут, унифицировал типовые сценарии через платформенные компоненты, участвовал в миграции с Vue 2 на Vue 3, снизил связность фронтенда через FSD-рефакторинг и повысил устойчивость сложных экранов за счёт lazy loading, кэширования и оптимизации state management.',
+        'Разрабатываю сложные внутренние SPA на Vue 3/React с ролевой моделью доступа, серверной обработкой данных и интеграцией с backend API. Реализовал оркестратор сущностей, сокративший подключение новой доменной модели в UI примерно до 30 минут, унифицировал типовые сценарии через платформенные компоненты, участвовал в миграции с Vue 2 на Vue 3, снизил связность фронтенда через FSD-рефакторинг и повысил устойчивость сложных экранов за счёт lazy loading, кэширования и оптимизации state management.',
       projects: [
         {
           id: 'ipam',
           name: 'IPAM',
           description: 'Продукт для управления сетевой инфраструктурой.',
-          images: [
-            '/portfolio/ipam/Screenshot%202026-04-09%20145236.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145309.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145318.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145354.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145359.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145413.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145449.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145456.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145518.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145546.png',
-            '/portfolio/ipam/Screenshot%202026-04-09%20145625.png',
-          ],
+          images: [...ipamProjectImages],
         },
         {
           id: 'ert',
           name: 'ERT для Вымпелком',
-          description:
-            'Интерфейсы для политик, чёрных списков и логирования для Вымпелкома.',
+          description: 'Интерфейсы для политик, чёрных списков и логирования для Вымпелкома.',
         },
         {
           id: 'sumuz',
           name: 'СУМУЗ для Вымпелком',
-          description:
-            'Админ-панель мониторинга и управления инфраструктурой в системе защиты от DDoS-атак для Вымпелкома.',
-          images: [
-            '/portfolio/sumuz/Screenshot%202026-04-09%20130729.png',
-            '/portfolio/sumuz/Screenshot%202026-04-09%20130742.png',
-            '/portfolio/sumuz/Screenshot%202026-04-09%20130811.png',
-            '/portfolio/sumuz/Screenshot%202026-04-09%20130817.png',
-          ],
+          description: 'Админ-панель мониторинга и управления инфраструктурой в системе защиты от DDoS-атак для Вымпелкома.',
+          images: [...sumuzProjectImages],
         },
       ],
     },

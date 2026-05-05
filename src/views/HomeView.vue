@@ -43,13 +43,15 @@
 
           <div class="home-stage__actions">
             <a
-              :href="primaryEmail?.href"
+              v-if="primaryEmailHref"
+              :href="primaryEmailHref"
               class="action-link"
             >
               {{ t('home.emailAction') }}
             </a>
             <a
-              :href="githubContact?.href"
+              v-if="githubContactHref"
+              :href="githubContactHref"
               class="action-link"
               target="_blank"
               rel="noreferrer"
@@ -265,46 +267,35 @@
 
         <section class="cv-block surface-panel">
           <p class="info-title">{{ t('home.cvEducation') }}</p>
-          <div class="cv-stack">
-            <article
-              v-for="item in activeProfile.education"
-              :key="`${item.institution}-${item.year}`"
-              class="cv-stack__item"
-            >
-              <h3 class="cv-stack__title">{{ item.institution }}</h3>
-              <p class="cv-stack__meta">
-                {{ item.degree }} · {{ item.field }} · {{ item.year }}
-              </p>
-            </article>
-          </div>
+          <CvStackItems
+            :items="educationStackItems"
+            stack-class="cv-stack"
+            item-class="cv-stack__item"
+            title-class="cv-stack__title"
+            text-class="cv-stack__meta"
+          />
         </section>
 
         <section class="cv-block surface-panel">
           <p class="info-title">{{ t('home.cvTraining') }}</p>
-          <div class="cv-stack">
-            <article
-              v-for="item in activeProfile.training"
-              :key="`${item.provider}-${item.title}-${item.year}`"
-              class="cv-stack__item"
-            >
-              <h3 class="cv-stack__title">{{ item.provider }}</h3>
-              <p class="cv-stack__meta">{{ item.title }} · {{ item.year }}</p>
-            </article>
-          </div>
+          <CvStackItems
+            :items="trainingStackItems"
+            stack-class="cv-stack"
+            item-class="cv-stack__item"
+            title-class="cv-stack__title"
+            text-class="cv-stack__meta"
+          />
         </section>
 
         <section class="cv-block surface-panel">
           <p class="info-title">{{ t('home.cvLanguages') }}</p>
-          <div class="cv-stack">
-            <article
-              v-for="language in activeProfile.languages"
-              :key="language.name"
-              class="cv-stack__item"
-            >
-              <h3 class="cv-stack__title">{{ language.name }}</h3>
-              <p class="cv-stack__meta">{{ language.level }}</p>
-            </article>
-          </div>
+          <CvStackItems
+            :items="languageStackItems"
+            stack-class="cv-stack"
+            item-class="cv-stack__item"
+            title-class="cv-stack__title"
+            text-class="cv-stack__meta"
+          />
         </section>
       </div>
     </ModalDialog>
@@ -314,10 +305,10 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import CvStackItems from '../components/CvStackItems.vue'
 import ExperienceTimeline from '../components/ExperienceTimeline.vue'
 import ModalDialog from '../components/ModalDialog.vue'
-import { profileData } from '../data/profile'
-import { profileDataRu } from '../data/profile.ru'
+import { useResumeProfile } from '../composables/useResumeProfile'
 import ContactsView from './ContactsView.vue'
 import PortfolioView from './PortfolioView.vue'
 
@@ -325,78 +316,43 @@ const { t, locale } = useI18n()
 const isCvOpen = ref(false)
 const cvPdfHref = '/cv/vladimir-potemkin-frontend-developer-cv.pdf'
 
-const activeProfile = computed(() =>
-  locale.value === 'ru' ? profileDataRu : profileData,
+const {
+  activeProfile,
+  highlightedSkills,
+  primaryEmailHref,
+  githubContactHref,
+  availabilityPrimaryLine,
+  availabilityLocationLine,
+  availabilityModesLine,
+  availabilityEmploymentLine,
+  availabilityTripsLine,
+  skillGroups,
+  formatProjectNames,
+} = useResumeProfile()
+
+const educationStackItems = computed(() =>
+  activeProfile.value.education.map(item => ({
+    id: `${item.institution}-${item.year}`,
+    title: item.institution,
+    meta: `${item.degree} · ${item.field} · ${item.year}`,
+  })),
 )
 
-const highlightedSkills = computed(() =>
-  activeProfile.value.skills
-    .slice(0, 5)
-    .map(({ name }) => name)
-    .join(' · '),
+const trainingStackItems = computed(() =>
+  activeProfile.value.training.map(item => ({
+    id: `${item.provider}-${item.title}-${item.year}`,
+    title: item.provider,
+    meta: `${item.title} · ${item.year}`,
+  })),
 )
 
-const primaryEmail = computed(() =>
-  activeProfile.value.contacts.find(({ type }) => type === 'email'),
+const languageStackItems = computed(() =>
+  activeProfile.value.languages.map(language => ({
+    id: language.name,
+    title: language.name,
+    meta: language.level,
+  })),
 )
-
-const githubContact = computed(() =>
-  activeProfile.value.contacts.find(({ type }) => type === 'github'),
-)
-
-const availabilityPrimaryLine = computed(
-  () =>
-    `${activeProfile.value.availability.location} · ${activeProfile.value.availability.citizenship}`,
-)
-
-const availabilityLocationLine = computed(
-  () =>
-    `${activeProfile.value.availability.location} · ${activeProfile.value.availability.workModes.join(' / ')}`,
-)
-
-const availabilityModesLine = computed(() =>
-  activeProfile.value.availability.workModes.join(' / '),
-)
-
-const availabilityEmploymentLine = computed(() =>
-  activeProfile.value.availability.employmentTypes.join(' / '),
-)
-
-const availabilityTripsLine = computed(() =>
-  activeProfile.value.availability.businessTrips
-    ? t('home.cvBusinessTripsYes')
-    : t('home.cvBusinessTripsNo'),
-)
-
-const skillCategoryOrder = [
-  'language',
-  'frontend',
-  'architecture',
-  'state',
-  'tooling',
-  'ai',
-] as const
-
-const skillGroups = computed(() =>
-  skillCategoryOrder
-    .map(category => {
-      const items = activeProfile.value.skills
-        .filter(skill => skill.category === category)
-        .map(({ name }) => name)
-        .join(' · ')
-
-      return {
-        category,
-        title: t(`home.cvSkillCategories.${category}`),
-        items,
-      }
-    })
-    .filter(({ items }) => items),
-)
-
-function formatProjectNames(projects: Array<{ name: string }>): string {
-  return projects.map(({ name }) => name).join(' · ')
-}
 
 function escapeHtml(value: string): string {
   return value
